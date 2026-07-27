@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-courier"
+version = "0.1.0"
+description = "Private, durable messaging between terminal agents across machines"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Agent Courier contributors" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+
+[project.scripts]
+agent-courier = "agent_courier.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/orlenko/agent-courier"
+Repository = "https://github.com/orlenko/agent-courier"
+Issues = "https://github.com/orlenko/agent-courier/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
