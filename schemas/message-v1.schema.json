@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/orlenko/agent-courier/schemas/message-v1.schema.json",
+  "title": "Agent Courier message v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "message_id",
+    "sender_id",
+    "sender_alias",
+    "recipient_id",
+    "recipient_alias",
+    "body",
+    "sent_at",
+    "expires_at",
+    "reply_to",
+    "priority"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sender_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sender_alias": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,31}$"
+    },
+    "recipient_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "recipient_alias": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,31}$"
+    },
+    "body": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8000
+    },
+    "sent_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reply_to": {
+      "oneOf": [
+        {
+          "const": ""
+        },
+        {
+          "type": "string",
+          "format": "uuid"
+        }
+      ]
+    },
+    "priority": {
+      "enum": [
+        "low",
+        "normal",
+        "high"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
